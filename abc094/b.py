@@ -1,7 +1,6 @@
 n, m, x = map(int, input().split())
 arr = list(map(int, input().split()))
 
-mn = 0
 l_cost = 0
 r_cost = 0
 
