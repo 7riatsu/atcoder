@@ -1,0 +1,1 @@
+git add $1.py && git commit -m "Solve $1" && git push origin head
