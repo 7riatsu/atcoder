@@ -11,9 +11,8 @@ for i, line in enumerate(lines):
             col[j] = False
 
 for i, line in enumerate(lines):
-    ans_line = ""
     for j, char in enumerate(line):
         if not row[i]:
             if not col[j]:
-                ans_line += char
-    print(ans_line)
+                print(char, end="")
+    print()
