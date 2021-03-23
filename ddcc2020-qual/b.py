@@ -4,19 +4,17 @@ arr = list(map(int, input().split()))
 forward = [0] * n
 back = [0] * n
 
-for i, ele in enumerate(arr):
-    if i == 0:
-        forward[i] = ele
+for k, v in enumerate(arr):
+    if k == 0:
+        forward[k] = arr[k]
+        back[k] = sum(arr)
     else:
-        forward[i] += forward[i - 1] + ele
-
-for i, ele in enumerate(arr[::-1]):
-    if i == 0:
-        back[i] = sum(arr)
-    else:
-        back[i] = back[i - 1] - ele
+        forward[k] = forward[k - 1] + v
+        back[k] = back[k - 1] - arr[k - 1]
 
 ans = 2020202020
-for i in range(len(arr) - 1):
+
+for i in range(len(forward) - 1):
     ans = min(ans, abs(forward[i] - back[i + 1]))
+
 print(ans)
