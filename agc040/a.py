@@ -1,22 +1,13 @@
 s = input()
-ans = []
+ans = [0] * (len(s) + 1)
 
-for i in range(len(s) + 1):
-    l = r = 0
-    l_str = s[:i]
-    r_str = s[i:]
+for i in range(len(s)):
+    if s[i] == "<":
+        ans[i + 1] = ans[i] + 1
 
-    for char in reversed(l_str):
-        if char == "<":
-            l += 1
-        else:
-            break
 
-    for char in r_str:
-        if char == ">":
-            r += 1
-        else:
-            break
-    ans.append(max(l, r))
+for i in range(len(s) - 1, -1, -1):
+    if s[i] == ">":
+        ans[i] = max(ans[i], ans[i + 1] + 1)
 
 print(sum(ans))
